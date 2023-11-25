@@ -48,6 +48,9 @@ send POST request with
 import os
 from flask import Flask, request, jsonify
 from flask_mail import Mail, Message
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from generate_assignments import generate_assignments
 
@@ -82,7 +85,7 @@ def send_santa_emails(santas, bcc='', subject_template='', message_template=''):
     for santa in santas:
         emails.append({
             'recipients': [santa['email']],
-            'bcc': [bcc],
+            'bcc': [bcc] if bcc else None,
             'subject': replace_merge_tags(subject_template, santa),
             'body': replace_merge_tags(message_template, santa),
         })

@@ -51,3 +51,30 @@ send POST request with data of the form
   "test": true
 }
 ```
+
+
+# Setup
+
+Create a venv with
+
+```
+python3 -m venv ./venv
+```
+
+Activate with
+
+```
+source ./venv/bin/activate
+```
+
+Install dependencies with
+
+```
+pip install -r /path/to/requirements.txt
+```
+
+Create a `.env` file containing your mail deets, and then run the app with
+
+```
+flask run
+```
